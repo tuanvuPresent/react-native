@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class HomeComponent extends Component {
+export default class MyWalletComponent extends Component {
   static navigationOptions = ({navigation}) => {
     const {params = {}} = navigation.state;
-    let tabBarLabel = 'Home';
+    let tabBarLabel = 'Wallet';
     let tabBarIcon = ({tintColor}) => (
-      <Icon name="home" size={25} color="#900" />
+      <Icon name="bank" size={25} color="#900" />
     );
     return {tabBarLabel, tabBarIcon};
   };
@@ -17,12 +17,12 @@ export default class HomeComponent extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: '#297220',
+          backgroundColor: '#007256',
           alignItems: 'center',
           justifyContent: 'center',
         }}>
         <Text style={{fontWeight: 'bold', fontSize: 22, color: 'white'}}>
-          This is My Home Screen
+          This is My Wallet Screen
         </Text>
       </View>
     );

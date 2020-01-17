@@ -1,9 +1,9 @@
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createAppContainer} from 'react-navigation';
-import HomeComponent from '../components/HomeComponent';
-import PromotionComponent from '../components/PromotionComponent';
-import TransactionHistoryComponent from '../components/TransactionHistoryComponent';
-import MyWalletComponent from '../components/MyWalletComponent';
+import HomeComponent from '../screen/HomeComponent';
+import PromotionComponent from '../screen/PromotionComponent';
+import TransactionHistoryComponent from '../screen/TransactionHistoryComponent';
+import MyWalletComponent from '../screen/MyWalletComponent';
 
 let routeConfigs = {
   Home: {
