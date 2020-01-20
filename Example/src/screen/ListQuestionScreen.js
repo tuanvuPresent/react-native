@@ -29,7 +29,7 @@ class ItemComponent extends Component {
                 <TouchableOpacity onPress={() => {
 
                 }}>
-                    <Text>{this.props.item.name}</Text>
+                    <Text>{this.props.item.key}</Text>
                 </TouchableOpacity>
             </View>
         )
