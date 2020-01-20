@@ -1,16 +1,34 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, View} from "react-native";
+import {FlatList, Text, TouchableOpacity, View} from "react-native";
+
+
+let listTest = [
+    {key: 'test 1'},
+    {key: 'test 2'},
+    {key: 'test 3'},
+    {key: 'test 4'},
+    {key: 'test 5'},
+];
 
 class ListTestScreen extends Component {
+    showQuestion() {
+        this.props.navigation.navigate('ListQuestion');
+    }
+
     render() {
         return (
             <View>
-                <Text>List Test</Text>
-                <TouchableOpacity onPress={() => {
-                    this.props.navigation.navigate('ListQuestion');
-                }}>
-                    <Text style={{color: 'red'}}>Start</Text>
-                </TouchableOpacity>
+                <FlatList
+                    data={listTest}
+                    renderItem={
+                        ({item}) =>
+                            <TouchableOpacity onPress={() => {
+                                this.showQuestion()
+                            }}>
+                                <Text>{item.key}</Text>
+                            </TouchableOpacity>
+                    }
+                />
             </View>
         );
     }

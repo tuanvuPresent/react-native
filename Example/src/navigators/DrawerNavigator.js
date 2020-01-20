@@ -1,18 +1,18 @@
 //import react in our code.
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import HomeDrawerComponent from '../screen/HomeDrawerComponent';
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import HeaderComponent from "../components/HeaderComponent";
 import Icon from "react-native-vector-icons/FontAwesome";
-import MathScreen from "../screen/MathScreen";
-import CustomDrawComponent from "./CustomDrawComponent";
+import CustomDrawerComponent from "../components/CustomDrawerComponent";
+import HomeScreen from "../screen/HomeComponent";
+import {AppStack} from "./MathNavigator";
 
 
 const FirstActivity_StackNavigator = createStackNavigator({
     Home: {
-        screen: HomeDrawerComponent,
+        screen: HomeScreen,
         navigationOptions: ({navigation}) => ({
             title: 'Home',
             headerLeft: <HeaderComponent navigationProps={navigation}/>,
@@ -25,7 +25,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
 });
 const SecondActivity_StackNavigator = createStackNavigator({
     Math: {
-        screen: MathScreen,
+        screen: AppStack,
         navigationOptions: ({navigation}) => ({
             title: 'Math',
             headerLeft: <HeaderComponent navigationProps={navigation}/>,
@@ -44,7 +44,7 @@ export const DrawerNavigator = createDrawerNavigator(
             navigationOptions: ({navigation}) => ({
                 drawerIcon: () => (
                     <Icon name="home" size={25} color="#900"/>
-                )
+                ),
             })
         },
         Math: {
@@ -52,11 +52,11 @@ export const DrawerNavigator = createDrawerNavigator(
             navigationOptions: ({navigation}) => ({
                 drawerIcon: () => (
                     <Icon name="book" size={25} color="#900"/>
-                )
+                ),
             })
         },
     }, {
-        contentComponent: CustomDrawComponent
+        contentComponent: CustomDrawerComponent
     }
 );
 

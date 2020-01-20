@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {Icon} from "native-base";
 
-export default class HomeComponent extends Component {
-    static navigationOptions = ({navigation}) => {
-        const {params = {}} = navigation.state;
-        let tabBarLabel = 'Home';
-        let tabBarIcon = ({tintColor}) => (
-            <Icon name="home" size={25} color="#900"/>
-        );
-        return {tabBarLabel, tabBarIcon};
-    };
-
+export default class HomeScreen extends Component {
     render() {
         return (
             <View

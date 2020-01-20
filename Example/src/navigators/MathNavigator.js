@@ -1,7 +1,7 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import ListTestScreen from "../screen/ListTestScreen";
-import GridMenuSection from "../screen/GridMenuSection";
+import GridMenuSection from "../screen/GridMenuSectionExam";
 import ListQuestionScreen from "../screen/ListQuestionScreen";
 
 
@@ -14,6 +14,7 @@ export const RootStack = createStackNavigator({
                 backgroundColor: '#beffb7',
             },
             headerTintColor: '#000000',
+            // headerShown: false,
         }
     },
     ListTest: {
@@ -24,6 +25,7 @@ export const RootStack = createStackNavigator({
                 backgroundColor: '#beffb7',
             },
             headerTintColor: '#000000',
+            // headerShown: false,
         }
     },
     ListQuestion: {
@@ -34,8 +36,11 @@ export const RootStack = createStackNavigator({
                 backgroundColor: '#beffb7',
             },
             headerTintColor: '#000000',
+            // headerShown: false,
         }
     }
+}, {
+    initialRouteName: 'Math',
 });
 
 export const AppStack = createAppContainer(RootStack);

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {SectionGrid} from 'react-native-super-grid';
 
-export default class GridMenuSection extends Component {
+export default class GridMenuSectionExam extends Component {
     render() {
         const items = [
             {name: 'Đại số', code: '#1abc9c'},

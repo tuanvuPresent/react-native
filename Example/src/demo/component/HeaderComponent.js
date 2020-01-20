@@ -6,6 +6,7 @@ export default class HeaderComponent extends Component {
         //Props to open/close the drawer
         this.props.navigationProps.toggleDrawer();
     };
+
     render() {
         return (
             <View
@@ -20,7 +21,7 @@ export default class HeaderComponent extends Component {
                     onPress={this.toggleDrawer.bind(this)}>
                     <Image
                         style={{width: 20, height: 20}}
-                        source={require('../assets/menu.png')}
+                        source={require('../../assets/menu.png')}
                     />
                 </TouchableHighlight>
             </View>

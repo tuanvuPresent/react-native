@@ -1,7 +1,9 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {TabNavigator} from './src/navigators/TabNavigatorComponent';
 import {DrawerNavigator} from './src/navigators/DrawerNavigator';
-import {TopTabNavigator} from './src/navigators/TopTabNavigator';
+import {DemoTab} from "./src/demo/navigator/DemoTabNavigator";
+import {DemoStackNavigator} from "./src/demo/navigator/DemoStackNavigator";
+import {DemoDrawerNavigator} from "./src/demo/navigator/DemoDrawerNavigator";
+import {DemoTopTab} from "./src/demo/navigator/DemoTopTabNavigator";
 
 const App = createAppContainer(DrawerNavigator);
 
