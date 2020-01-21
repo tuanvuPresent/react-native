@@ -1,47 +1,118 @@
 import React, {Component} from 'react';
-import {Alert, FlatList, Text, TouchableOpacity, View} from 'react-native';
-import Pages from "react-native-pages/src/components/pages";
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import RadioForm from 'react-native-simple-radio-button';
 
-let listTest = [
-    {key: 'test 1'},
-    {key: 'test 2'},
-    {key: 'test 3'},
-    {key: 'test 4'},
-    {key: 'test 5'},
+const data = [
+    {
+        id: '1',
+        content: 'Question 1',
+        answer: [
+            {
+                content: 'A'
+            },
+            {
+                content: 'B'
+            },
+            {
+                content: 'C'
+            }
+        ]
+    },
+    {
+        id: '2',
+        content: 'Question 2',
+        answer: [
+            {
+                content: 'A'
+            },
+            {
+                content: 'B'
+            },
+            {
+                content: 'C'
+            }
+        ]
+    },
+    {
+        id: '3',
+        content: 'Question 3',
+        answer: [
+            {
+                content: 'A'
+            },
+            {
+                content: 'B'
+            },
+            {
+                content: 'C'
+            }
+        ]
+    },
+    {
+        id: '4',
+        content: 'Question 4',
+        answer: [
+            {
+                content: 'A'
+            },
+            {
+                content: 'B'
+            },
+            {
+                content: 'C'
+            }
+        ]
+    },
+    {
+        id: '5',
+        content: 'Question 5',
+        answer: [
+            {
+                content: 'A'
+            },
+            {
+                content: 'B'
+            },
+            {
+                content: 'C'
+            }
+        ]
+    }
 ];
 
-// export default class DemoPages extends Component {
-//     render() {
-//         return (
-//             <Pages rtl={true}>
-//                 <Text>screen 1</Text>
-//                 <Text>screen 2</Text>
-//                 <Text>screen 3</Text>
-//             </Pages>
-//         )
-//     }
-//
-// }
 class ItemComponent extends Component {
-    render() {
-        return (
-            <View>
-                <TouchableOpacity onPress={() => {
 
-                }}>
-                    <Text>{this.props.item.key}</Text>
-                </TouchableOpacity>
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const list = [...this.props.item.answer];
+        list.map((item) => {
+            item.label = item.content;
+        });
+        return (
+            <View style={{margin: 20}}>
+                <Text style={styles.TextComponentStyle}>{this.props.item.content}</Text>
+                <RadioForm
+                    // selectedLabelColor={'red'}
+                    radio_props={this.props.item.answer}
+                    onPress={(value, index) => {
+                        console.log(index)
+                    }}
+                />
             </View>
-        )
+        );
     }
 }
 
-export default class ListQuestionScreen1 extends Component {
+export default class ListQuestionScreen extends Component {
+
     render() {
         return (
             <View>
                 <FlatList
-                    data={listTest}
+                    data={data}
                     renderItem={
                         ({item}) => {
                             return (
@@ -50,8 +121,27 @@ export default class ListQuestionScreen1 extends Component {
                             )
                         }
                     }
+                    keyExtractor={item => item.id}
                 />
             </View>
-        );
+        )
     }
-};
+
+}
+const styles = StyleSheet.create({
+    MainContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    TextComponentStyle: {
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: '#FF5722',
+        padding: 2,
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 2
+    }
+});
