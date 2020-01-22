@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import RadioForm from 'react-native-simple-radio-button';
+import CustomCountDown from "../components/CustomCountDown";
 
 const data = [
     {
@@ -107,39 +108,11 @@ class ItemComponent extends Component {
 }
 
 export default class ListQuestionScreen extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mm: 0,
-            ss: 0
-        }
-    }
-
-    componentDidMount(): void {
-        setInterval(() => {
-            this.getClock()
-        }, 20)
-    }
-
-    getClock() {
-        if (this.state.ss === 59) {
-            this.setState({ss: 0});
-            this.setState({mm: this.state.mm + 1});
-        } else {
-            this.setState({ss: this.state.ss + 1});
-            this.setState({mm: this.state.mm});
-        }
-    }
-
 
     render() {
         return (
-            <View>
-                <View>
-                    <Text style={{fontSize: 20}}>
-                        {this.state.mm} : {this.state.ss}
-                    </Text>
-                </View>
+            <View style={{flex: 1}}>
+                <CustomCountDown time={60}/>
                 <FlatList
                     data={data}
                     renderItem={

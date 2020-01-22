@@ -20,6 +20,17 @@ let listTest = [
     {key: 'test 15'},
 ];
 
+class ItemTest extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.text}>{this.props.item.key}</Text>
+            </View>
+        )
+    }
+
+}
+
 class ListTestScreen extends Component {
     showQuestion() {
         this.props.navigation.navigate('ListQuestion');
@@ -35,7 +46,7 @@ class ListTestScreen extends Component {
                             <TouchableOpacity onPress={() => {
                                 this.showQuestion()
                             }}>
-                                <Text style={styles.text}>{item.key}</Text>
+                                <ItemTest item={item}/>
                             </TouchableOpacity>
                     }
                 />
@@ -52,6 +63,36 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingLeft: 5
+        paddingLeft: 5,
+    },
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        padding: 10,
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 8,
+        marginBottom: 8,
+        borderRadius: 5,
+        backgroundColor: '#FFF',
+        elevation: 2,
+    },
+    title: {
+        fontSize: 16,
+        color: '#000',
+    },
+    container_text: {
+        flex: 1,
+        flexDirection: 'column',
+        marginLeft: 12,
+        justifyContent: 'center',
+    },
+    description: {
+        fontSize: 11,
+        fontStyle: 'italic',
+    },
+    photo: {
+        height: 50,
+        width: 50,
     },
 });
